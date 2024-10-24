@@ -1,0 +1,930 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+
+
+}
+.message{
+   position: sticky;
+   top:0;
+   margin:0 auto;
+   max-width: 1200px;
+   background-color: var(--light-bg);
+   display: flex;
+   align-items: center;
+   padding:2rem;
+   gap:1.5rem;
+   z-index: 10000;
+   justify-content: space-between;
+}
+
+.message span{
+   color:var(--black);
+   font-size: 2rem;
+}
+
+.message i{
+   font-size: 2.5rem;
+   color:var(--red);
+   cursor: pointer;
+}
+
+.message i:hover{
+   transform: rotate(90deg);
+}
+/*....................dashboard................................. */
+body{
+    min-height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+li{
+    text-decoration: none;
+}
+.btn{
+    background: #eb0d6a;
+    color: beige;
+    padding: 5px 10px;
+    text-align: center;
+
+}
+.btn:hover{
+    color:#eb0d6a;
+    background: beige;
+    padding: 3px 8px;
+    border: 2px solid;
+}
+
+.delete-btn{
+    background: rgb(228, 113, 71);
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+}
+.delete-btn:hover{
+    background: rgb(32, 30, 30);
+    color: white;
+}
+.option-btn{
+    background: rgb(228, 212, 71);
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+.option-btn:hover{
+    background: rgb(32, 30, 30);
+    color: white;
+}
+
+/* ...............side menu................. */
+
+
+.side-menu {
+    position: fixed;
+    background-color: #247996;
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu .logo {
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.side-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side-menu li a {
+    padding-top: 30px;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.side-menu li a:hover {
+    background: #eb0d6a;
+    color: aliceblue;
+}
+
+
+
+
+
+.container{
+    position: absolute;
+    right: 0;
+    width: 80vw;
+    height: 100vh;
+    background: #f3f1f1;
+}
+
+.container .header {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container .header .nav {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between;
+    
+}
+
+.container .header .nav .user {
+    position: relative;
+}
+
+.container .header .nav .user img{
+    width: 40px;
+    height: 40px;
+}
+
+.container .header .nav .user .img-admin{
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+.container .header .nav .user .img-admin img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.container .header .nav .user .account-box {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.user:hover .account-box {
+    display: block;
+}
+
+.account-box p {
+    margin: 5px 0;
+}
+
+.account-box a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.account-box a:hover {
+    text-decoration: underline;
+}
+
+ 
+/* .......................button.................. */
+
+.button {
+    margin-top: 20px; /* Adjusted to add space between header and buttons */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button a {
+    width: 30%; /* Adjust as needed */
+    padding: 40px 40px; /* Adjust as needed */
+    text-align: center;
+    background-color: #121213;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button a:hover {
+    background-color: #b3567c;
+    color: white;
+    text-align: center;
+}
+
+/* ....................................header part............................. */
+
+.headeradmin {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.logoo img {
+    height: 80px; /* Adjust height as needed */
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+ul li {
+    margin-right: 60px; /* Adjust spacing between items */
+}
+
+/* ul li:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+/* } */ 
+
+ul li a {
+    text-decoration: none;
+    font-family: Helvetica;
+    color: #333; /* Adjust color as needed */
+}
+ul li a:hover{
+    color: #eb0d6a;
+}
+
+
+/* --------------------------------------list----------------------------------- */
+.totalList {
+    width: 100%;
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.totalList table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.totalList th,
+.totalList td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.totalList th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.totalList tr:hover {
+    background-color: #f1f1f1;
+}
+
+.totalList .delete-btnn,
+.totalList .option-btnn {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.totalList .delete-btnn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.totalList .delete-btnn:hover {
+    background-color: #c0392b;
+}
+
+.totalList .option-btnn {
+    background-color: #3498db;
+    color: white;
+    margin-left: 10px; /* Add space between delete and update buttons */
+}
+
+.totalList .option-btnn:hover {
+    background-color: #2980b9;
+}
+
+.totalList .action-buttons {
+    display: flex;
+    gap: 10px; /* Space between action buttons */
+    align-items: center;
+    justify-content: center;
+}
+
+.totalList .action-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-package {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    background-color: rgba(78, 74, 74, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow-y: auto; /* Enable vertical scrollbar for the container */
+}
+
+/* Style for the form */
+.edit-package form {
+    width: 100%;
+    max-width: 30rem;
+    max-height: 80vh; /* Set a max height for the form */
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    text-align: center;
+    overflow-y: auto; /* Enable vertical scrollbar for the form */
+}
+
+/* Style for form inputs */
+.edit-package form .box {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #e7b6b6;
+    color: black;
+    text-transform: none;
+}
+
+/* Style for buttons container */
+.edit-package form .button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; /* Adjust the gap between buttons */
+}
+
+/* Style for buttons */
+.edit-package form .button-container .btn {
+    flex: 1; /* Make buttons flexible to take equal space */
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-package form .button-container .update-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.edit-package form .button-container .update-btn:hover {
+    background-color: #2980b9;
+}
+
+.edit-package form .button-container .cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.edit-package form .button-container .cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------alert box---------------------------- */
+
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Default color is red for danger */
+    color: white;
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add some shadow for better visibility */
+}
+
+.alert.success {
+    background-color: #4CAF50; /* Green for success */
+}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+
+
+
+/* --------------------Register Trainer------------------------------ */
+/* Style for form-trainer */
+.form-trainer {
+    margin-left: 500px; /* Adjusted to create gap */
+    margin-right: 100px;
+    
+   
+    width: 600px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-trainer h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.trainer-detail {
+    margin-bottom: 15px;
+}
+
+.trainer-detail span {
+    display: inline-block;
+    width: 130px;
+    font-weight: bold;
+}
+
+.trainer-detail input[type="text"],
+.trainer-detail input[type="email"],
+.trainer-detail input[type="number"],
+.trainer-detail input[type="password"] {
+    width: calc(100% - 140px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* outline: none;
+    font-size: 14px; */
+}
+
+.trainer-detail input[type="radio"] {
+    margin-right: 10px;
+}
+
+.form-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-btn:hover {
+    background-color: #45a049;
+}
+
+
+/*--------------------------------- Trainer Header------------------------------- */
+.headertrainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.logoo img {
+    max-width: 100px;
+    height: auto;
+}
+
+.user {
+    position: relative;
+}
+
+.img-admin img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+}
+
+.account-box {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.delete-btn {
+    color: #fff;
+    background-color: #ff0000;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.account-box a {
+    color: #333;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.account-box a:hover {
+    text-decoration: underline;
+}
+
+
+/* -------------------trainer-body--------------- */
+.trainer-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh; /* Adjust height as needed */
+}
+
+.trainer-body h1 {
+    margin-bottom: 20px; /* Add space below the h1 */
+}
+
+.t-button {
+    margin-top: 20px; /* Add space above the button */
+}
+
+.trainer-body .t-button .t-btn {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 32px 52px;
+    text-align: center;
+    font-size: 16px;
+    margin: 10px 2px; /* Adjust margin as needed */
+    transition: 0.3s;
+    border-radius: 18px; /* Add curved edges */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+}
+
+.t-btn:hover {
+    background-color: #3f9442 !important;
+    color: white !important;
+}
+
+/*-----------------------------trainer salary------------------------------ */
+
+.salary {
+    margin: 20px auto;
+    width: 80%;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #e5e5e5;
+}
+
+.total {
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------------trainer------------------------- */
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: 10999; /* One less than the modal */
+}
+
+.edit-trainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white; /* Solid white background */
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 11000;
+    width: 400px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+.edit-trainer form div {
+    margin-bottom: 15px;
+}
+.edit-trainer form div label {
+    display: block;
+    margin-bottom: 5px;
+}
+.edit-trainer .box {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.edit-trainer .error {
+    color: red;
+    font-size: 12px;
+}
+.edit-trainer .option-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.edit-trainer .option-btn:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* ---------------------update student------------------- */
+ 
+ /* Style for the overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    overflow-y: auto; /* Enable scrolling if needed */
+}
+
+/* Style for the edit-student section */
+.edit-student {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    display: none; /* Hidden by default */
+    width: 60%;
+    max-width: 800px;
+    border-radius: 10px;
+    max-height: 90%; /* Ensure it doesn't exceed the viewport height */
+    overflow-y: auto; /* Enable scrolling within the form if needed */
+}
+
+/* Two-column layout for the form */
+.edit-student form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.edit-student form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-student form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.edit-student form input[type="text"],
+.edit-student form input[type="date"],
+.edit-student form input[type="email"],
+.edit-student form input[type="number"],
+.edit-student form input[type="time"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Container for buttons */
+.edit-student form .button-container {
+    grid-column: span 2; /* Span both columns */
+    display: flex;
+    justify-content: center; /* Center align buttons */
+    gap: 10px; /* Small gap between buttons */
+}
+
+.edit-student form input[type="submit"],
+.edit-student form input[type="button"] {
+    padding: 10px 20px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Add space above buttons */
+}
+
+.edit-student form input[type="button"] {
+    background: #6c757d;
+}
+
+.edit-student form input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+.edit-student form input[type="button"]:hover {
+    background: #5a6268;
+}
+
+
+/* --------------------------------------list----------------------------------- */
+.totalList {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.totalList table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.totalList th,
+.totalList td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.totalList th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.totalList tr:hover {
+    background-color: #f1f1f1;
+}
+
+.totalList .delete-btnn,
+.totalList .option-btnn {
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.totalList .delete-btnn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.totalList .delete-btnn:hover {
+    background-color: #c0392b;
+}
+
+.totalList .option-btnn {
+    background-color: #3498db;
+    color: white;
+    margin-left: 10px; /* Add space between delete and update buttons */
+}
+
+.totalList .option-btnn:hover {
+    background-color: #2980b9;
+}
+
+.totalList .action-buttons {
+    display: flex;
+    gap: 10px; /* Space between action buttons */
+    align-items: center;
+    justify-content: center;
+}
+
+.totalList .action-buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
